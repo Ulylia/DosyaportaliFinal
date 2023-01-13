@@ -1,0 +1,54 @@
+<div class="container-fluid">
+    <div class="row">
+        <!-- show form -->
+        <div class="col-md-4 mt-5">
+
+           <div class="card border-0 shadow">
+               <div class="card-body">x
+                <div>
+                    <input type="file" class="text-nowrap text-truncate file" (change)="selectFile($event)">
+                    <button type="button" class="btn btn-outline-warning" [disabled] = "!selectedFiles" (click)="uploadFile()">Yükle</button>
+                </div>
+    
+                <div class="progress mt-2">
+                    <div class="progress-bar progress-bar-info"
+                        role="progressbar" attr.aria-valuenow="{{percentage}}"
+                        aria-valuemin="0" aria-valuemax="100" [ngStyle]="{ width: percentage + '%' }">
+                        {{percentage}}%
+                    </div>
+                </div>
+               </div>
+           </div>
+
+
+        </div>
+        <!-- display all files -->
+        <div class="col-md-8">
+
+            <div class="mb-3 mt-3">
+                <h4 class="text-primary">Dosya Listesi</h4>
+            </div>
+
+            <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">Dosya Adı</th>
+                    <th scope="col">Dosya Boyutu</th>
+                    <th scope="col">Düzenle</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let file of listOfFiles">
+                    <th>{{file.name}}</th>
+                    <td>{{file.size}}</td>
+                    <td>
+                        <a href="{{file.url}}" class="btn btn-outline-info" type="button" download>İndir</a>
+                        <a class="btn btn-outline-danger ms-2" type="button" (click)="deleteFile(file)">Sil</a>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+
+        </div>
+    </div>
+</div>

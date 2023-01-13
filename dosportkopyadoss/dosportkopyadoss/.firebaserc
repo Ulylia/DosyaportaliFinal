@@ -1,0 +1,21 @@
+{
+  "targets": {
+    "emlak-ba2fe": {
+      "hosting": {
+        "dosport1": [
+          "dosport-dyp"
+        ]
+      }
+    },
+    "dosport-dyp": {
+      "hosting": {
+        "dosport1": [
+          "dosport-dyp"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "dosport-dyp"
+  }
+}
